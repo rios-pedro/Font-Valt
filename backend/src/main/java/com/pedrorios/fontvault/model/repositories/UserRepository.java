@@ -1,4 +1,4 @@
-package com.pedrorios.fontvault.repositories;
+package com.pedrorios.fontvault.model.repositories;
 
 import com.pedrorios.fontvault.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,21 +1,40 @@
 spring:
   application:
     name: font-vault
-  datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+
   jpa:
     hibernate:
       ddl-auto: validate
-    show-sql: true
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
-supabase:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+
   storage:
-    url: ${SUPABASE_STORAGE_URL}
-    bucket: font-vault
-    service-key: ${SUPABASE_SERVICE_KEY}
-
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
+    supabase:
+      url: ${SUPABASE_URL}
+      bucket: ${SUPABASE_BUCKET:fonts}
+      service-key: ${SUPABASE_SERVICE_KEY}

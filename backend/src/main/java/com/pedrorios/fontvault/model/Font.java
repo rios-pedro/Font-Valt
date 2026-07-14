@@ -1,21 +1,11 @@
 package com.pedrorios.fontvault.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.OffsetDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "fonts")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Font {
 
     @Id
@@ -76,4 +66,5 @@ public class Font {
         updatedAt = OffsetDateTime.now();
     }
 
+    // getters/setters
 }

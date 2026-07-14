@@ -34,5 +34,5 @@ public class Category {
         createdAt = OffsetDateTime.now();
     }
 
-
+    // getters/setters
 }
